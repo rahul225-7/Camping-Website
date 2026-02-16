@@ -1,80 +1,147 @@
 <% layout('layouts/boilerplate') %>
 
-<!-- HERO -->
-<section class="py-5 text-center text-light"
-  style="background: linear-gradient(135deg, #198754, #20c997);">
-  <div class="container py-5">
-    <h1 class="display-4 fw-bold mb-3">
-      YelpCamp
-    </h1>
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative" style="z-index: 2;">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center text-white py-5 my-md-5">
 
-    <p class="lead mb-4">
-      Discover beautiful campgrounds, share experiences, and explore the outdoors.
-    </p>
+          <span class="hero-badge">
+            &#x2B50; DISCOVER THE OUTDOORS
+          </span>
 
-    <div class="d-flex justify-content-center gap-3">
-      <a href="/campgrounds" class="btn btn-light btn-lg fw-semibold">
-        Explore Campgrounds
-      </a>
+          <h1 class="display-3 fw-bold mb-3 hero-title">
+            Find Your Perfect<br>
+            <span class="hero-highlight">Campground</span> Today
+          </h1>
 
-      <a href="/campgrounds/new" class="btn btn-outline-light btn-lg fw-semibold">
-        Add Campground
-      </a>
+          <p class="lead mb-4 hero-subtitle">
+            Welcome to YelpCamp, your ultimate guide to the best
+            camping spots. Share your reviews, discover hidden gems,
+            and connect with nature lovers worldwide.
+          </p>
+
+          <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="/campgrounds" class="btn btn-yc-primary btn-lg fw-semibold px-4 hero-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-2"
+                viewBox="0 0 16 16">
+                <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+              </svg>
+              Explore Campgrounds
+            </a>
+            <a href="/campgrounds/new" class="btn btn-outline-light btn-lg fw-semibold px-4 hero-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-2"
+                viewBox="0 0 16 16">
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+              </svg>
+              Add Your Own
+            </a>
+          </div>
+
+        </div>
+      </div>
     </div>
-  </div>
-</section>
 
-<!-- INFO CARDS -->
-<section class="py-5 bg-light">
-  <div class="container">
-    <div class="row g-4 text-center">
-
-      <div class="col-md-4">
-        <div class="p-4 h-100 bg-white rounded shadow-sm">
-          <div class="fs-1 mb-2">🌲</div>
-          <h5 class="fw-bold">Explore</h5>
-          <p class="text-muted mb-0">
-            Browse campgrounds shared by travelers from around the world.
-          </p>
+    <!-- Stats bar overlapping hero bottom -->
+    <div class="container position-relative" style="z-index: 3;">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="stats-bar">
+            <div class="stat-item">
+              <div class="stat-number">50+</div>
+              <div class="stat-label">CURATED CAMPGROUNDS</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">1k+</div>
+              <div class="stat-label">HONEST REVIEWS</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">50</div>
+              <div class="stat-label">STATES COVERED</div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="col-md-4">
-        <div class="p-4 h-100 bg-white rounded shadow-sm">
-          <div class="fs-1 mb-2">⭐</div>
-          <h5 class="fw-bold">Review</h5>
-          <p class="text-muted mb-0">
-            Rate and review places you’ve visited to help others.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="p-4 h-100 bg-white rounded shadow-sm">
-          <div class="fs-1 mb-2">🗺️</div>
-          <h5 class="fw-bold">Share</h5>
-          <p class="text-muted mb-0">
-            Add your own campgrounds and build the community.
-          </p>
-        </div>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CTA -->
-<section class="py-5 text-center"
-  style="background: #f8f9fa;">
-  <div class="container">
-    <h3 class="fw-bold mb-3">
-      Ready to start your next adventure?
-    </h3>
-    <p class="text-muted mb-4">
-      Join explorers discovering new places every day.
-    </p>
-    <a href="/campgrounds" class="btn btn-success btn-lg">
-      Get Started
-    </a>
-  </div>
-</section>
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works-section">
+    <div class="container py-5">
+      <div class="text-center mb-5">
+        <span class="section-subtitle">HOW IT WORKS</span>
+        <h2 class="fw-bold mt-2">Start Your Journey in 3 Steps</h2>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+
+        <div class="col-md-4 col-sm-6">
+          <div class="step-card text-center p-4 h-100">
+            <div class="step-icon step-icon-green mx-auto mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+              </svg>
+            </div>
+            <h5 class="fw-bold mb-2">Explore</h5>
+            <p class="text-muted small mb-0">
+              Browse through hundreds of curated campgrounds with detailed photos and amenities.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="step-card text-center p-4 h-100">
+            <div class="step-icon step-icon-gold mx-auto mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+              </svg>
+            </div>
+            <h5 class="fw-bold mb-2">Review</h5>
+            <p class="text-muted small mb-0">
+              Share your experiences and help others find the perfect spot for their next adventure.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="step-card text-center p-4 h-100">
+            <div class="step-icon step-icon-blue mx-auto mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3" />
+              </svg>
+            </div>
+            <h5 class="fw-bold mb-2">Share</h5>
+            <p class="text-muted small mb-0">
+              Upload your favorite camping moments and connect with a community of explorers.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-overlay"></div>
+    <div class="container text-center py-5 position-relative" style="z-index: 2;">
+      <div class="row justify-content-center">
+        <div class="col-lg-7 py-4">
+          <h2 class="fw-bold text-white display-6 mb-3">
+            Ready to Start Your<br>Next Adventure?
+          </h2>
+          <p class="text-white mb-4" style="opacity: 0.8;">
+            Join thousands of campers who are already exploring the wilderness with YelpCamp.
+          </p>
+          <a href="/campgrounds" class="btn btn-yc-primary btn-lg fw-semibold px-5">
+            Get Started Now &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>

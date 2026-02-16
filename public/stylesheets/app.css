@@ -1,300 +1,469 @@
+/* ===================================================
+   YELPCAMP — GLOBAL STYLES (Dark/Gold Theme)
+   =================================================== */
+
+/* ===== Base ===== */
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1a1a2e;
+    background: #fafbfc;
+}
+
+/* ===== Theme Colors ===== */
+
+.btn-yc-primary {
+    background: linear-gradient(135deg, #e8a838, #d4922a);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-yc-primary:hover {
+    background: linear-gradient(135deg, #d4922a, #c0841f);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(232, 168, 56, 0.35);
+}
+
+.btn-yc-secondary {
+    background: #1a3c34;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-yc-secondary:hover {
+    background: #142e28;
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(26, 60, 52, 0.3);
+}
+
+/* ===== Navbar ===== */
+
+.yc-navbar {
+    background: #0c1e1a !important;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.yc-navbar .navbar-brand {
+    font-size: 1.2rem;
+    letter-spacing: -0.3px;
+}
+
+.yc-navbar .nav-link {
+    color: rgba(255, 255, 255, 0.65) !important;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    transition: color 0.2s ease;
+}
+
+.yc-navbar .nav-link:hover {
+    color: #fff !important;
+}
+
+/* ===== Footer ===== */
+
+.yc-footer {
+    background: #0c1e1a;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.yc-footer a.text-muted:hover {
+    color: #fff !important;
+}
+
+/* ===== Page Headers ===== */
+
+.page-header {
+    background: linear-gradient(135deg, #0c1e1a, #1a3c34);
+    color: #fff;
+    padding: 3rem 0 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+.page-header p {
+    opacity: 0.7;
+}
+
+/* ===== Cards (Global) ===== */
+
+.yc-card {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #eee;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.yc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.yc-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.yc-card .card-body {
+    padding: 1.25rem;
+}
+
+.yc-card .card-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 0.35rem;
+    color: #1a1a2e;
+}
+
+.yc-card .card-location {
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 0.75rem;
+}
+
 /* ===== Campground Show Page ===== */
 
 .camp-card {
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .camp-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
 
 .camp-image {
-  height: 420px;
-  object-fit: cover;
+    height: 420px;
+    object-fit: cover;
 }
 
 .camp-title {
-  font-size: 2rem;
-  font-weight: 700;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1a1a2e;
 }
 
 .camp-location {
-  color: #6c757d;
-  font-size: 0.95rem;
+    color: #888;
+    font-size: 0.9rem;
 }
 
 .camp-price {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #198754;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #e8a838;
 }
 
 .camp-description {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #333;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #555;
 }
 
 /* ===== Action Buttons ===== */
 
 .action-buttons .btn {
-  border-radius: 999px;
-  padding: 0.4rem 1rem;
-  font-weight: 500;
+    border-radius: 999px;
+    padding: 0.45rem 1.2rem;
+    font-weight: 600;
+    font-size: 0.85rem;
 }
 
 /* ===== Reviews ===== */
 
 .review-card {
-  background: #f8f9fa;
-  border-radius: 12px;
-  padding: 0.9rem 1rem;
-  margin-bottom: 0.75rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.75rem;
 }
 
 .review-user {
-  font-weight: 600;
+    font-weight: 600;
+    font-size: 0.9rem;
 }
 
 .review-rating {
-  font-size: 0.9rem;
-  color: #f4b400;
+    font-size: 0.9rem;
+    color: #e8a838;
 }
 
 .review-body {
-  margin-top: 0.25rem;
-  font-size: 0.95rem;
+    margin-top: 0.25rem;
+    font-size: 0.95rem;
 }
 
 /* ===== Review Form ===== */
 
 .review-form textarea,
 .review-form select {
-  border-radius: 10px;
+    border-radius: 10px;
 }
 
 .review-form button {
-  border-radius: 12px;
-  font-weight: 600;
+    border-radius: 12px;
+    font-weight: 600;
 }
 
 /* ===== Sidebar Cards ===== */
 
 .side-card {
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
-/* ===== Star Rating (FIXED) ===== */
+/* ===== Star Rating ===== */
 
 .star-rating {
-  display: inline-flex;
-  gap: 0.25rem;
-  font-size: 1.8rem;
-  cursor: pointer;
-  user-select: none;
+    display: inline-flex;
+    gap: 0.25rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+    user-select: none;
 }
 
 .star {
-  color: #ddd;
-  transition: color 0.2s ease, transform 0.15s ease;
+    color: #ddd;
+    transition: color 0.2s ease, transform 0.15s ease;
 }
 
 .star:hover {
-  transform: scale(1.15);
+    transform: scale(1.15);
 }
 
-/* Active stars */
 .star.selected {
-  color: #f4b400;
+    color: #e8a838;
+}
+
+/* ===== Form Pages (New / Edit) ===== */
+
+.form-page-card {
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.form-page-card .form-control,
+.form-page-card .form-select {
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    padding: 0.65rem 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-page-card .form-control:focus,
+.form-page-card .form-select:focus {
+    border-color: #e8a838;
+    box-shadow: 0 0 0 0.2rem rgba(232, 168, 56, 0.15);
+}
+
+.form-page-card .form-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+/* ===== Auth Pages (Login / Register) ===== */
+
+.auth-card {
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.auth-card .form-control {
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    padding: 0.7rem 1rem;
+}
+
+.auth-card .form-control:focus {
+    border-color: #e8a838;
+    box-shadow: 0 0 0 0.2rem rgba(232, 168, 56, 0.15);
+}
+
+/* ===== Modern Reviews ===== */
+
+.review-card-modern {
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 0.9rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.4rem;
+}
+
+.review-text {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+}
+
+/* ===== Review Stars (Display) ===== */
+
+.review-stars .star {
+    font-size: 1rem;
+    color: #ddd;
+}
+
+.review-stars .filled {
+    color: #e8a838;
+}
+
+/* ===== Rating Toggle Bar ===== */
+
+.rating-toggle {
+    display: inline-flex;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+}
+
+.rating-toggle input {
+    display: none;
+}
+
+.rating-toggle label {
+    padding: 0.45rem 0.9rem;
+    cursor: pointer;
+    font-weight: 600;
+    background: #f8f9fa;
+    color: #495057;
+    transition: background 0.2s ease, color 0.2s ease;
+    border-right: 1px solid #dee2e6;
+}
+
+.rating-toggle label:last-child {
+    border-right: none;
+}
+
+.rating-toggle label:hover {
+    background: #e9ecef;
+}
+
+.rating-toggle input:checked+label {
+    background: #1a3c34;
+    color: white;
 }
 
 /* =========================================================
    GLOBAL RESPONSIVE ADJUSTMENTS
    ========================================================= */
 
-/* ---------- Base (Mobile First) ---------- */
-
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
-.container {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.card {
-  margin-bottom: 1rem;
-}
-
-/* Buttons */
 .btn {
-  white-space: nowrap;
+    white-space: nowrap;
 }
 
-/* Forms */
 input,
 textarea,
 select {
-  font-size: 1rem;
+    font-size: 1rem;
 }
 
 /* ---------- Small Devices (≤576px) ---------- */
 @media (max-width: 576px) {
 
-  /* Headings */
-  h1, h2 {
-    font-size: 1.5rem;
-  }
+    h1,
+    h2 {
+        font-size: 1.5rem;
+    }
 
-  h3, h4 {
-    font-size: 1.25rem;
-  }
+    h3,
+    h4 {
+        font-size: 1.25rem;
+    }
 
-  /* Campground image (show page) */
-  .camp-image {
-    height: 260px;
-  }
+    .camp-image {
+        height: 260px;
+    }
 
-  /* Stack action buttons */
-  .action-buttons {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+    .action-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 
-  /* Review sidebar becomes full-width */
-  .side-card {
-    margin-top: 1rem;
-  }
+    .side-card {
+        margin-top: 1rem;
+    }
 
-  /* Forms spacing */
-  .review-form button {
-    font-size: 1rem;
-    padding: 0.6rem;
-  }
+    .review-form button {
+        font-size: 1rem;
+        padding: 0.6rem;
+    }
 
-  /* Navbar spacing */
-  .navbar-nav {
-    gap: 0.25rem;
-  }
+    .navbar-nav {
+        gap: 0.25rem;
+    }
+
+    .page-header {
+        padding: 2rem 0 1.5rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
 }
 
-/* ---------- Medium Devices (Tablets ≤768px) ---------- */
+/* ---------- Medium Devices (≤768px) ---------- */
 @media (max-width: 768px) {
+    .camp-image {
+        height: 320px;
+    }
 
-  /* Campground image */
-  .camp-image {
-    height: 320px;
-  }
+    .card-body {
+        padding: 1.25rem;
+    }
 
-  /* Reduce card padding */
-  .card-body {
-    padding: 1.25rem;
-  }
+    .review-card {
+        padding: 0.75rem;
+    }
 
-  /* Review cards */
-  .review-card {
-    padding: 0.75rem;
-  }
-
-  /* Forms */
-  textarea {
-    min-height: 90px;
-  }
+    textarea {
+        min-height: 90px;
+    }
 }
 
-/* ---------- Large Devices (Desktops ≥992px) ---------- */
+/* ---------- Large Devices (≥992px) ---------- */
 @media (min-width: 992px) {
+    .camp-image {
+        height: 420px;
+    }
 
-  .camp-image {
-    height: 420px;
-  }
-
-  .container {
-    max-width: 1140px;
-  }
+    .container {
+        max-width: 1140px;
+    }
 }
-
-
-/* ===== Modern Reviews ===== */
-
-.review-card-modern {
-  background: #f9fafb;
-  border-radius: 12px;
-  padding: 0.9rem;
-  margin-bottom: 0.75rem;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
-}
-
-.review-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.4rem;
-}
-
-.review-user {
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.review-text {
-  font-size: 0.95rem;
-  color: #333;
-  line-height: 1.5;
-  margin-bottom: 0.5rem;
-}
-
-/* ===== Review Stars (Display) ===== */
-
-.review-stars .star {
-  font-size: 1rem;
-  color: #ddd;
-}
-
-.review-stars .filled {
-  color: #f4b400;
-}
-
-/* ===== Rating Toggle Bar ===== */
-
-.rating-toggle {
-  display: inline-flex;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid #dee2e6;
-}
-
-.rating-toggle input {
-  display: none;
-}
-
-.rating-toggle label {
-  padding: 0.45rem 0.9rem;
-  cursor: pointer;
-  font-weight: 600;
-  background: #f8f9fa;
-  color: #495057;
-  transition: background 0.2s ease, color 0.2s ease;
-  border-right: 1px solid #dee2e6;
-}
-
-.rating-toggle label:last-child {
-  border-right: none;
-}
-
-.rating-toggle label:hover {
-  background: #e9ecef;
-}
-
-.rating-toggle input:checked + label {
-  background: #198754;
-  color: white;
-}
-

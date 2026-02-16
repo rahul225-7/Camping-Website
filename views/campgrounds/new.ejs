@@ -1,130 +1,106 @@
 <% layout('layouts/boilerplate') %>
 
-<div class="row justify-content-center">
-  <div class="col-lg-8 col-md-10">
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <h1 class="mb-1">Create New Campground</h1>
+      <p class="mb-0 small">Share a new campground with the community</p>
+    </div>
+  </div>
 
-    <div class="card shadow-lg border-0">
-      <div class="card-body p-4 p-md-5">
+  <div class="container mb-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-7 col-md-10">
 
-        <h2 class="text-center fw-bold mb-4">Create New Campground</h2>
+        <div class="form-page-card p-4 p-md-5">
 
-        <form action="/campgrounds" method="POST" novalidate class="needs-validation">
+          <form action="/campgrounds" method="POST" novalidate class="needs-validation">
 
-          <!-- TITLE -->
-          <div class="mb-3">
-            <label class="form-label fw-semibold">Title</label>
-            <input
-              class="form-control form-control-lg"
-              type="text"
-              name="campground[title]"
-              placeholder="Beautiful Mountain Retreat"
-              required
-            >
-            <div class="invalid-feedback">Title is required.</div>
-          </div>
+            <!-- TITLE -->
+            <div class="mb-3">
+              <label class="form-label">Title</label>
+              <input class="form-control" type="text" name="campground[title]" placeholder="Beautiful Mountain Retreat"
+                required>
+              <div class="invalid-feedback">Title is required.</div>
+            </div>
 
-          <!-- LOCATION -->
-          <div class="mb-3">
-            <label class="form-label fw-semibold">Location</label>
-            <input
-              class="form-control form-control-lg"
-              type="text"
-              name="campground[location]"
-              placeholder="Yosemite, California"
-              required
-            >
-            <div class="invalid-feedback">Location is required.</div>
-          </div>
+            <!-- LOCATION -->
+            <div class="mb-3">
+              <label class="form-label">Location</label>
+              <input class="form-control" type="text" name="campground[location]" placeholder="Yosemite, California"
+                required>
+              <div class="invalid-feedback">Location is required.</div>
+            </div>
 
-          <!-- IMAGE URL + RANDOM BUTTON -->
-          <div class="mb-3">
-            <label class="form-label fw-semibold">Image URL</label>
+            <!-- IMAGE URL + RANDOM BUTTON -->
+            <div class="mb-3">
+              <label class="form-label">Image URL</label>
 
-            <div class="input-group">
-              <input
-                id="imageUrlInput"
-                class="form-control"
-                type="text"
-                name="campground[image]"
-                placeholder="https://images.pexels.com/..."
-                required
-              >
-              <button
-                type="button"
-                id="randomImageBtn"
-                class="btn btn-outline-secondary"
-              >
-                🎲 Random
+              <div class="input-group">
+                <input id="imageUrlInput" class="form-control" type="text" name="campground[image]"
+                  placeholder="https://images.pexels.com/..." required>
+                <button type="button" id="randomImageBtn" class="btn btn-outline-secondary"
+                  style="border-radius: 0 10px 10px 0;">
+                  🎲 Random
+                </button>
+              </div>
+
+              <div class="form-text">
+                Click "Random" to auto-fill a camping image.
+              </div>
+            </div>
+
+            <!-- PRICE -->
+            <div class="mb-3">
+              <label class="form-label">Price per night</label>
+              <div class="input-group">
+                <span class="input-group-text" style="border-radius: 10px 0 0 10px;">$</span>
+                <input class="form-control" type="number" step="0.01" name="campground[price]" placeholder="25"
+                  required>
+              </div>
+            </div>
+
+            <!-- DESCRIPTION -->
+            <div class="mb-4">
+              <label class="form-label">Description</label>
+              <textarea class="form-control" rows="4" name="campground[description]"
+                placeholder="Describe the campground..." required></textarea>
+            </div>
+
+            <!-- ACTIONS -->
+            <div class="d-grid gap-2">
+              <button class="btn btn-yc-primary btn-lg">
+                Add Campground
               </button>
+              <a href="/campgrounds" class="btn btn-outline-secondary" style="border-radius: 50px;">
+                ← Back to All Campgrounds
+              </a>
             </div>
 
-            <div class="form-text">
-              Click “Random” to auto-fill a camping image.
-            </div>
-          </div>
+          </form>
 
-          <!-- PRICE -->
-          <div class="mb-3">
-            <label class="form-label fw-semibold">Price per night</label>
-            <div class="input-group">
-              <span class="input-group-text">$</span>
-              <input
-                class="form-control"
-                type="number"
-                step="0.01"
-                name="campground[price]"
-                placeholder="25"
-                required
-              >
-            </div>
-          </div>
-
-          <!-- DESCRIPTION -->
-          <div class="mb-4">
-            <label class="form-label fw-semibold">Description</label>
-            <textarea
-              class="form-control"
-              rows="4"
-              name="campground[description]"
-              placeholder="Describe the campground..."
-              required
-            ></textarea>
-          </div>
-
-          <!-- ACTIONS -->
-          <div class="d-grid gap-2">
-            <button class="btn btn-success btn-lg">
-              ➕ Add Campground
-            </button>
-            <a href="/campgrounds" class="btn btn-outline-secondary">
-              ← Back to All Campgrounds
-            </a>
-          </div>
-
-        </form>
+        </div>
 
       </div>
     </div>
-
   </div>
-</div>
 
-<!-- FRONTEND SCRIPT -->
-<script>
-  document.getElementById('randomImageBtn').addEventListener('click', async () => {
-    const btn = document.getElementById('randomImageBtn');
-    btn.disabled = true;
-    btn.innerText = 'Loading…';
+  <!-- FRONTEND SCRIPT -->
+  <script>
+    document.getElementById('randomImageBtn').addEventListener('click', async () => {
+      const btn = document.getElementById('randomImageBtn');
+      btn.disabled = true;
+      btn.innerText = 'Loading…';
 
-    try {
-      const res = await fetch('/api/random-camp-image');
-      const data = await res.json();
-      document.getElementById('imageUrlInput').value = data.imageUrl;
-    } catch (err) {
-      alert('Failed to fetch image');
-    } finally {
-      btn.disabled = false;
-      btn.innerText = '🎲 Random';
-    }
-  });
-</script>
+      try {
+        const res = await fetch('/api/random-camp-image');
+        const data = await res.json();
+        document.getElementById('imageUrlInput').value = data.imageUrl;
+      } catch (err) {
+        alert('Failed to fetch image');
+      } finally {
+        btn.disabled = false;
+        btn.innerText = '🎲 Random';
+      }
+    });
+  </script>

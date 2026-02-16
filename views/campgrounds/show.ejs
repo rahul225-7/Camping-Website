@@ -1,159 +1,166 @@
 <% layout('layouts/boilerplate') %>
 
-<div class="row g-4">
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-2" style="--bs-breadcrumb-divider: '›';">
+          <li class="breadcrumb-item"><a href="/campgrounds" class="text-white-50 text-decoration-none">Campgrounds</a>
+          </li>
+          <li class="breadcrumb-item active text-white" aria-current="page">
+            <%= campground.title %>
+          </li>
+        </ol>
+      </nav>
+      <h1 class="mb-0">
+        <%= campground.title %>
+      </h1>
+    </div>
+  </div>
 
-  <!-- LEFT: CAMPGROUND DETAILS -->
-  <div class="col-lg-8">
+  <div class="container mb-5">
+    <div class="row g-4">
 
-    <div class="card camp-card mb-3">
+      <!-- LEFT: CAMPGROUND DETAILS -->
+      <div class="col-lg-8">
 
-      <img
-        src="<%= campground.image || 'https://source.unsplash.com/collection/483251' %>"
-        class="card-img-top camp-image"
-        alt="<%= campground.title %>"
-      >
+        <div class="card camp-card mb-3">
 
-      <div class="card-body">
+          <img src="<%= campground.image || 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800' %>"
+            class="card-img-top camp-image" alt="<%= campground.title %>">
 
-        <h2 class="camp-title mb-1"><%= campground.title %></h2>
+          <div class="card-body p-4">
 
-        <p class="camp-location mb-2">
-          📍 <%= campground.location %>
-        </p>
+            <h2 class="camp-title mb-1">
+              <%= campground.title %>
+            </h2>
 
-        <p class="camp-price mb-3">
-          $<%= campground.price %> / night
-        </p>
+            <p class="camp-location mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="me-1"
+                viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+              </svg>
+              <%= campground.location %>
+            </p>
 
-        <p class="camp-description mb-4">
-          <%= campground.description %>
-        </p>
+            <p class="camp-price mb-3">
+              $<%= campground.price %> <span class="text-muted fw-normal" style="font-size: 0.85rem;">/ night</span>
+            </p>
 
-        <!-- ACTION BUTTONS (VISIBLE TO EVERYONE) -->
-        <div class="d-flex gap-2 action-buttons">
-          <a
-            href="/campgrounds/<%= campground._id %>/edit"
-            class="btn btn-outline-primary"
-          >
-            ✏️ Edit
-          </a>
+            <p class="camp-description mb-4">
+              <%= campground.description %>
+            </p>
 
-          <form
-            action="/campgrounds/<%= campground._id %>?_method=DELETE"
-            method="POST"
-          >
-            <button class="btn btn-outline-danger">
-              🗑️ Delete
-            </button>
-          </form>
+            <!-- ACTION BUTTONS -->
+            <div class="d-flex gap-2 action-buttons flex-wrap">
+              <a href="/campgrounds/<%= campground._id %>/edit" class="btn btn-outline-primary">
+                ✏️ Edit
+              </a>
+
+              <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+                <button class="btn btn-outline-danger">
+                  🗑️ Delete
+                </button>
+              </form>
+            </div>
+
+          </div>
         </div>
 
+        <a href="/campgrounds" class="btn btn-yc-secondary px-4">
+          ← Back to Campgrounds
+        </a>
+
+      </div>
+
+      <!-- RIGHT: REVIEWS -->
+      <div class="col-lg-4">
+
+        <!-- REVIEWS LIST -->
+        <div class="card side-card mb-4">
+          <div class="card-body">
+
+            <h4 class="fw-bold mb-3">Reviews</h4>
+
+            <% if (campground.reviews.length===0) { %>
+              <p class="text-muted">No reviews yet. Be the first!</p>
+              <% } %>
+
+                <% campground.reviews.forEach(review=> { %>
+
+                  <div class="mb-3 pb-3 border-bottom">
+                    <strong class="d-block mb-1">
+                      @<%= review.author?.username || 'Anonymous' %>
+                    </strong>
+
+                    <div class="text-muted small">
+                      Rating: <strong class="text-dark">
+                        <%= review.rating %>
+                      </strong> / 5
+                    </div>
+
+                    <p class="mt-1 mb-2 small">
+                      <%= review.body %>
+                    </p>
+
+                    <form action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=DELETE"
+                      method="POST">
+                      <button class="btn btn-sm btn-outline-danger">
+                        Delete
+                      </button>
+                    </form>
+                  </div>
+
+                  <% }) %>
+
+          </div>
+        </div>
+
+        <!-- ADD REVIEW -->
+        <div class="card side-card">
+          <div class="card-body">
+
+            <h5 class="fw-bold mb-3">Leave a Review</h5>
+
+            <form action="/campgrounds/<%= campground._id %>/reviews" method="POST" class="review-form">
+
+              <!-- RATING TOGGLE BAR -->
+              <div class="mb-3">
+                <label class="form-label d-block">Rating</label>
+
+                <div class="rating-toggle">
+                  <input type="radio" id="rate1" name="review[rating]" value="1" required>
+                  <label for="rate1">1</label>
+
+                  <input type="radio" id="rate2" name="review[rating]" value="2">
+                  <label for="rate2">2</label>
+
+                  <input type="radio" id="rate3" name="review[rating]" value="3">
+                  <label for="rate3">3</label>
+
+                  <input type="radio" id="rate4" name="review[rating]" value="4">
+                  <label for="rate4">4</label>
+
+                  <input type="radio" id="rate5" name="review[rating]" value="5">
+                  <label for="rate5">5</label>
+                </div>
+              </div>
+
+              <!-- REVIEW TEXT -->
+              <div class="mb-3">
+                <label class="form-label">Review</label>
+                <textarea name="review[body]" class="form-control" rows="3" placeholder="Share your experience..."
+                  required></textarea>
+              </div>
+
+              <button class="btn btn-yc-primary w-100">
+                Submit Review
+              </button>
+
+            </form>
+
+          </div>
+        </div>
       </div>
     </div>
-
-    <a href="/campgrounds" class="btn btn-secondary">
-      ← Back to Campgrounds
-    </a>
-
   </div>
-
-  <!-- RIGHT: REVIEWS -->
-<div class="col-lg-4">
-
-  <!-- REVIEWS LIST -->
-  <div class="card side-card mb-4">
-  <div class="card-body">
-
-    <h4 class="fw-bold mb-3">Reviews</h4>
-
-    <% if (campground.reviews.length === 0) { %>
-      <p class="text-muted">No reviews yet.</p>
-    <% } %>
-
-    <% campground.reviews.forEach(review => { %>
-
-      <div class="mb-3 pb-3 border-bottom">
-        <strong>
-          @<%= review.author?.username || 'Anonymous' %>
-        </strong>
-
-        <div class="text-muted">
-          Rating: <strong><%= review.rating %></strong> / 5
-        </div>
-
-        <p class="mt-1 mb-2">
-          <%= review.body %>
-        </p>
-
-        <form
-          action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=DELETE"
-          method="POST"
-        >
-          <button class="btn btn-sm btn-outline-danger">
-            Delete
-          </button>
-        </form>
-      </div>
-
-    <% }) %>
-
-  </div>
-</div>
-
-
-  <!-- ADD REVIEW -->
-<div class="card side-card">
-  <div class="card-body">
-
-    <h5 class="fw-bold mb-3">Leave a Review</h5>
-
-    <form
-      action="/campgrounds/<%= campground._id %>/reviews"
-      method="POST"
-      class="review-form"
-    >
-
-      <!-- RATING TOGGLE BAR -->
-<div class="mb-3">
-  <label class="form-label d-block">Rating</label>
-
-  <div class="rating-toggle">
-    <input type="radio" id="rate1" name="review[rating]" value="1" required>
-    <label for="rate1">1</label>
-
-    <input type="radio" id="rate2" name="review[rating]" value="2">
-    <label for="rate2">2</label>
-
-    <input type="radio" id="rate3" name="review[rating]" value="3">
-    <label for="rate3">3</label>
-
-    <input type="radio" id="rate4" name="review[rating]" value="4">
-    <label for="rate4">4</label>
-
-    <input type="radio" id="rate5" name="review[rating]" value="5">
-    <label for="rate5">5</label>
-  </div>
-</div>
-
-
-      <!-- REVIEW TEXT -->
-      <div class="mb-3">
-        <label class="form-label">Review</label>
-        <textarea
-          name="review[body]"
-          class="form-control"
-          rows="3"
-          placeholder="Share your experience..."
-          required
-        ></textarea>
-      </div>
-
-      <button class="btn btn-success w-100">
-        Submit Review
-      </button>
-
-    </form>
-
-  </div>
-</div>
-</div>

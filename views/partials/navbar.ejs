@@ -1,29 +1,33 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">YelpCamp</a>
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark yc-navbar">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#e8a838" viewBox="0 0 16 16">
+                <path d="M8 0L0 14h16L8 0zm0 3.5L12.5 13h-9L8 3.5z" />
+            </svg>
+            YelpCamp
+        </a>
 
-        <button class="navbar-toggler" type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav mx-auto">
                 <a class="nav-link" href="/">Home</a>
                 <a class="nav-link" href="/campgrounds">Campgrounds</a>
                 <a class="nav-link" href="/campgrounds/new">New Campground</a>
             </div>
-            <div class="navbar-nav ms-auto">
+            <div class="navbar-nav ms-auto d-flex align-items-center gap-2">
                 <% if (!currentUser) { %>
                     <a class="nav-link" href="/users/login">Login</a>
-                    <a class="nav-link" href="/users/register">Register</a>
-                <% } else { %>
-                    <a class="nav-link" href="/users/logout">Logout</a>
-                <% } %>
+                    <a class="btn btn-yc-primary btn-sm px-3 fw-semibold" href="/users/register">Sign Up</a>
+                    <% } else { %>
+                        <span class="nav-link text-muted pe-0">Hi, <strong class="text-white">
+                                <%= currentUser.username %>
+                            </strong></span>
+                        <a class="btn btn-outline-light btn-sm px-3 fw-semibold" href="/users/logout">Logout</a>
+                        <% } %>
             </div>
         </div>
     </div>

@@ -1,73 +1,64 @@
 <% layout('layouts/boilerplate') %>
 
-<div class="container d-flex justify-content-center align-items-center" style="min-height: 75vh;">
-    <div class="card shadow-lg border-0" style="width: 100%; max-width: 420px;">
-        <div class="card-body p-4">
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 78vh;">
+        <div class="auth-card" style="width: 100%; max-width: 420px;">
+            <div class="p-4 p-md-5">
 
-            <h3 class="card-title text-center mb-4 fw-bold">Create Your Account 🚀</h3>
-
-            <form action="/users/register" method="POST" class="needs-validation" novalidate>
-
-                <div class="mb-3">
-                    <label class="form-label fw-semibold" for="username">Username</label>
-                    <input
-                        class="form-control form-control-lg"
-                        type="text"
-                        id="username"
-                        name="username"
-                        placeholder="Choose a username"
-                        required
-                    >
-                    <div class="invalid-feedback">
-                        Username is required.
+                <div class="text-center mb-4">
+                    <div class="mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#e8a838"
+                            viewBox="0 0 16 16">
+                            <path d="M8 0L0 14h16L8 0zm0 3.5L12.5 13h-9L8 3.5z" />
+                        </svg>
                     </div>
+                    <h3 class="fw-bold mb-1">Create Your Account</h3>
+                    <p class="text-muted small">Join the YelpCamp community</p>
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label fw-semibold" for="email">Email</label>
-                    <input
-                        class="form-control form-control-lg"
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Enter your email"
-                        required
-                    >
-                    <div class="invalid-feedback">
-                        Please provide a valid email.
+                <form action="/users/register" method="POST" class="needs-validation" novalidate>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold small" for="username">Username</label>
+                        <input class="form-control" type="text" id="username" name="username"
+                            placeholder="Choose a username" required>
+                        <div class="invalid-feedback">
+                            Username is required.
+                        </div>
                     </div>
-                </div>
 
-                <div class="mb-4">
-                    <label class="form-label fw-semibold" for="password">Password</label>
-                    <input
-                        class="form-control form-control-lg"
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Create a password"
-                        required
-                    >
-                    <div class="invalid-feedback">
-                        Password is required.
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold small" for="email">Email</label>
+                        <input class="form-control" type="email" id="email" name="email" placeholder="Enter your email"
+                            required>
+                        <div class="invalid-feedback">
+                            Please provide a valid email.
+                        </div>
                     </div>
-                </div>
 
-                <button class="btn btn-success btn-lg w-100 mb-3">
-                    Register
-                </button>
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold small" for="password">Password</label>
+                        <input class="form-control" type="password" id="password" name="password"
+                            placeholder="Create a password" required>
+                        <div class="invalid-feedback">
+                            Password is required.
+                        </div>
+                    </div>
 
-            </form>
+                    <button class="btn btn-yc-primary btn-lg w-100 mb-3">
+                        Register
+                    </button>
 
-            <hr>
+                </form>
 
-            <p class="text-center mb-0 text-muted">
-                Already have an account?
-                <a href="/users/login" class="text-decoration-none fw-semibold">
-                    Login here
-                </a>
-            </p>
+                <hr class="my-3">
 
+                <p class="text-center mb-0 text-muted small">
+                    Already have an account?
+                    <a href="/users/login" class="text-decoration-none fw-semibold" style="color: #e8a838;">
+                        Login here
+                    </a>
+                </p>
+
+            </div>
         </div>
     </div>
-</div>

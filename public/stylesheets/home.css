@@ -1,39 +1,277 @@
-import 
+/* ===================================================
+   HOME PAGE STYLES — YelpCamp Dark/Gold Theme
+   =================================================== */
 
+/* ===== HERO SECTION ===== */
 
-body {
-    height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://images.unsplash.com/photo-1559521783-1d1599583485?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+.hero-section {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:
+        url("https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1920&q=80");
     background-size: cover;
     background-position: center;
-    text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
-    box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
-}
-.cover-container {
-  max-width: 60vw;
+    padding-bottom: 60px;
 }
 
-.nav-link {
-    padding: 0.25rem 0;
-    font-weight: 700;
-    color: rgba(255,255,255,0.5);
-    margin-left: 1rem;
-    border-bottom: 0.25rem solid transparent;
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba(10, 25, 20, 0.75) 0%,
+            rgba(12, 30, 28, 0.80) 50%,
+            rgba(8, 22, 18, 0.92) 100%);
+    z-index: 1;
 }
 
-.nav-link:hover{
-    color: rgba(255,255,255,0.5);
-    border-bottom-color:rgba(255,255,255,0.5);
+.hero-badge {
+    display: inline-block;
+    background: rgba(232, 168, 56, 0.15);
+    color: #e8a838;
+    border: 1px solid rgba(232, 168, 56, 0.3);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 0.45rem 1.2rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+    animation: fadeInDown 0.6s ease-out;
 }
 
-.nav-link.active {
-    color: white;
-    border-bottom-color:white;
-
+.hero-title {
+    line-height: 1.1;
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.4);
+    animation: fadeInUp 0.7s ease-out;
 }
 
-.btn-secondary, .btn-secondary:hover{
-    color: #333;
-    text-shadow: none;
+.hero-highlight {
+    color: #e8a838;
+    position: relative;
+}
+
+.hero-subtitle {
+    font-size: 1.05rem;
+    opacity: 0.8;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+    animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+
+.hero-btn {
+    border-radius: 50px;
+    padding: 0.75rem 1.8rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: fadeInUp 0.9s ease-out 0.2s both;
+}
+
+.hero-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== STATS BAR ===== */
+
+.stats-bar {
+    display: flex;
+    background: rgba(20, 40, 35, 0.9);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    margin-top: -30px;
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.stat-item {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.stat-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 10%;
+    height: 80%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #e8a838;
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.55);
+    margin-top: 0.25rem;
+    font-weight: 500;
+}
+
+/* ===== HOW IT WORKS ===== */
+
+.how-it-works-section {
+    background: #fafbfc;
+    padding: 5rem 0 4rem;
+}
+
+.section-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #999;
+    font-weight: 600;
+}
+
+.step-card {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.step-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-icon-green {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.step-icon-gold {
+    background: #fff3e0;
+    color: #e8a838;
+}
+
+.step-icon-blue {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+/* ===== CTA SECTION ===== */
+
+.cta-section {
+    position: relative;
+    background:
+        url("https://images.unsplash.com/photo-1533873984035-25970ab07461?auto=format&fit=crop&w=1920&q=80");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.cta-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg,
+            rgba(10, 40, 25, 0.92) 0%,
+            rgba(15, 50, 30, 0.88) 100%);
+    z-index: 1;
+}
+
+.cta-section .btn-yc-primary {
+    animation: none;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 80vh;
+        padding-bottom: 40px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .stats-bar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.2rem;
+    }
+
+    .stat-item:not(:last-child)::after {
+        width: 60%;
+        height: 1px;
+        right: 20%;
+        top: auto;
+        bottom: -0.5rem;
+    }
+
+    .stat-number {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        min-height: 75vh;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-btn {
+        width: 100%;
+    }
+
+    .step-card {
+        padding: 1.2rem !important;
+    }
 }
