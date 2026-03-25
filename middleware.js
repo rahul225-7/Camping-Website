@@ -34,6 +34,15 @@ module.exports.isAuthor = async (req, res, next) => {
         req.flash('error', 'Cannot find that campground!');
         return res.redirect('/campgrounds');
     }
+    // Defensive checks: existing seeded data may not have `author`
+    if (!campground.author) {
+        req.flash('error', 'This campground has no author assigned.');
+        return res.redirect(`/campgrounds/${id}`);
+    }
+    if (!req.user) {
+        req.flash('error', 'You must be signed in first!');
+        return res.redirect('/users/login');
+    }
     if (!campground.author.equals(req.user._id)) {
         req.flash('error', 'You do not have permission to do that!');
         return res.redirect(`/campgrounds/${id}`);
@@ -47,6 +56,15 @@ module.exports.isReviewAuthor = async (req, res, next) => {
     if (!review) {
         req.flash('error', 'Cannot find that review!');
         return res.redirect(`/campgrounds/${id}`);
+    }
+    // Defensive checks: existing seeded data may not have `author`
+    if (!review.author) {
+        req.flash('error', 'This review has no author assigned.');
+        return res.redirect(`/campgrounds/${id}`);
+    }
+    if (!req.user) {
+        req.flash('error', 'You must be signed in first!');
+        return res.redirect('/users/login');
     }
     if (!review.author.equals(req.user._id)) {
         req.flash('error', 'You do not have permission to do that!');

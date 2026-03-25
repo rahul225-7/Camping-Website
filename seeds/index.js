@@ -5,6 +5,7 @@ if (process.env.NODE_ENV !== 'production') {
 const cities = require('./cities');
 const { places, descriptors } = require('./seedHelpers');
 const Campground = require('../models/campground');
+const User = require('../models/user');
 const { createClient } = require('pexels');
 
 // Initialize Pexels client with your API key
@@ -24,6 +25,17 @@ const sample = array => array[Math.floor(Math.random() * array.length)];
 
 const seedDB = async () => {
     await Campground.deleteMany({});
+
+    // Ensure there's at least one user so seeded campgrounds can be owned.
+    const seedUsername = 'seeduser';
+    const seedEmail = 'seeduser@example.com';
+    const seedPassword = 'seedpassword';
+
+    let seededUser = await User.findOne({ username: seedUsername });
+    if (!seededUser) {
+        const user = new User({ email: seedEmail, username: seedUsername });
+        seededUser = await User.register(user, seedPassword);
+    }
 
     // Fetch camping images from Pexels
     let campingPhotos = [];
@@ -51,7 +63,8 @@ const seedDB = async () => {
             image: imageUrl,
             title: `${sample(descriptors)} ${sample(places)}`,
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.',
-            price: Math.floor(Math.random() * 20) + 10
+            price: Math.floor(Math.random() * 20) + 10,
+            author: seededUser._id
         });
         await camp.save();
     }
