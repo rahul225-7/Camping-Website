@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
 const cities = require('./cities');
 const { places, descriptors } = require('./seedHelpers');
 const Campground = require('../models/campground');
@@ -7,7 +10,8 @@ const { createClient } = require('pexels');
 // Initialize Pexels client with your API key
 const client = createClient(process.env.PEXELS_API_KEY);
 
-mongoose.connect('mongodb://localhost:27017/yelp-camp');
+const dbUrl = process.env.MONGODB_URI || 'mongodb://localhost:27017/yelp-camp';
+mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
 
